@@ -7,8 +7,8 @@ class AppLoader extends Loader {
         if (!apiUrl || !apiKey) {
             throw new Error('Missing API_URL or API_KEY in environment variables');
         }
-        super(apiUrl, {
-            apiKey: apiKey,
+        super('https://onrender.com', {
+            apiKey: 'rs-school',
         });
     }
 }
