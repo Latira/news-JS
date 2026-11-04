@@ -1,5 +1,10 @@
 import AppLoader from './appLoader';
 
+export enum ResponseStatus {
+    Ok = 'ok',
+    Error = 'error'
+}
+
 export interface NewsArticle {
     source: { id: string | null; name: string };
     author: string | null;
@@ -38,7 +43,11 @@ class AppController extends AppLoader {
             {
                 endpoint: 'sources',
             },
-            callback
+            (data) => {
+                if (data.status === ResponseStatus.Ok) {
+                    callback(data);
+                }
+            }
         );
     }
 
@@ -58,7 +67,11 @@ class AppController extends AppLoader {
                                 sources: sourceId,
                             },
                         },
-                        callback
+                        (data) => {
+                            if (data.status === ResponseStatus.Ok) {
+                                callback(data);
+                            }
+                        }   
                     );
                 }
                 return;
