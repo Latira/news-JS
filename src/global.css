@@ -13,21 +13,28 @@ header h1 {
     font-weight: 800;
 }
 
+main {
+    display: flex;
+}
+
 footer {
     height: 100px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
 }
-footer .copyright {
+footer .copyright, 
+footer .course-info {
     font-size: 14px;
     color: #333;
     text-align: center;
 }
-footer .copyright a {
+footer .copyright a,
+footer .course-info a {
     color: #444;
 }
-footer .copyright a:hover {
+footer .copyright a:hover,
+footer .course-info a:hover {
     color: #555;
 }
 footer .copyright:before {
